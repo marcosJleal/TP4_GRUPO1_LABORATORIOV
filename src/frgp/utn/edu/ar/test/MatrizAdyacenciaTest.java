@@ -39,5 +39,26 @@ class MatrizAdyacenciaTest {
 		assertFalse(mat.existeElemento(Y, X));
 	
 	}
+	@Test
+	public void contarRelacionesTest() {
+			
+		assertEquals(mat.getCantidadElementos(),2);
+	}
+	@Test
+	public void  existenTodosLosElementoTest() {
+		int X=0;
+		int Y=1;
+		int cantidad=0;
+		mat.agregarElemento(X, Y);
+		cantidad=mat.getCantidadElementos();
+		for( int i=0; i<cantidad-1; i++)
+		{
+			
+			   for(int j=0; j<=cantidad-1; j++)
+			   {
+				   assertFalse(mat.existeElemento(Y, X));
+			}
+		}
+	}
 	
 }
