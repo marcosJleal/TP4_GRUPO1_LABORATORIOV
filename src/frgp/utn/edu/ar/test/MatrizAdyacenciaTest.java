@@ -24,4 +24,20 @@ class MatrizAdyacenciaTest {
 		mat.agregarElemento(Y, X);
 		assertEquals(true,mat.existeElemento(Y, X));
 	}
+	@Test
+	public void eliminarElementoTest() {
+		int X=0;
+		int Y=1;
+		mat.eliminarElemento(X, Y);
+		assertFalse(mat.existeElemento(X, Y));
+	}
+	@Test
+	public void eliminarElementoSimetricoTest() {
+		int X=0;
+		int Y=1;
+		mat.eliminarElemento(X, Y);
+		assertFalse(mat.existeElemento(Y, X));
+	
+	}
+	
 }
