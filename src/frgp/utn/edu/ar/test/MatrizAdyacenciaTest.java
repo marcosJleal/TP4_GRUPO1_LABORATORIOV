@@ -23,7 +23,6 @@ class MatrizAdyacenciaTest {
 		int X=0;
 		int Y=1;
 		mat.agregarElemento(X, Y);
-		//mat.agregarElemento(Y, X); Esta linea no va, pide que se verifique si se agrego tambien en su posicion opuesta, no hay que volver a agregarlo
 		assertEquals(true,mat.existeElemento(Y, X));
 	}
 	
@@ -53,19 +52,27 @@ class MatrizAdyacenciaTest {
 		assertEquals(mat.getCantidadElementos(),1);
 	}
 	
+	
 	//Hay que revisar esta funcion, solo se le agrega un elemento, y solo se chequea ese elemento
+	//Corregido, chequeenlo por las dudas.
 	@Test
 	public void  existenTodosLosElementoTest() {
 		int X=0;
 		int Y=1;
+		//acá agregue la 2da posicion que falta ya que la simetrica se agrega sola y nuestra matriz es 2x2
+		int X2=0;
+		int Y2=0;
 		int cantidad=0;
 		mat.agregarElemento(X, Y);
+		mat.agregarElemento(X2, Y2);
+
 		cantidad=mat.getCantidadElementos();
 		for( int i=0; i<cantidad-1; i++)
 		{
 			for(int j=0; j<=cantidad-1; j++)
 			{
-				assertFalse(mat.existeElemento(Y, X)); 
+				//A la funcion existe le pasamos la posicion del doble for que es la posicion en la que esta recorriendo la matriz
+				assertFalse(mat.existeElemento(i, j)); 
 			}
 		}
 	}
