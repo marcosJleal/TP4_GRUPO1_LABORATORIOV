@@ -45,22 +45,20 @@ class MatrizAdyacenciaTest {
 	
 	@Test
 	public void contarRelacionesTest() {
-		//Este test estaba mal porque no se le habia agregado ningun elemento a la matriz
+	
 		int X=0;
 		int Y=1;
 		mat.agregarElemento(X, Y);
-		//Despues de agregar un elemento, se pregunta cuantos hay, y se compara con 1 (Elemento)
+	
 		assertEquals(mat.getCantidadElementos(),1);
 	}
 	
 	
-	//Hay que revisar esta funcion, solo se le agrega un elemento, y solo se chequea ese elemento
-	//Corregido, chequeenlo por las dudas.
+	
 	@Test
 	public void  existenTodosLosElementoTest() {
 		int X=0;
 		int Y=1;
-		//acá agregue la 2da posicion que falta ya que la simetrica se agrega sola y nuestra matriz es 2x2
 		int X2=0;
 		int Y2=0;
 		int cantidad=0;
@@ -72,7 +70,7 @@ class MatrizAdyacenciaTest {
 		{
 			for(int j=0; j<=cantidad-1; j++)
 			{
-				//A la funcion existe le pasamos la posicion del doble for que es la posicion en la que esta recorriendo la matriz
+				
 				assertFalse(mat.existeElemento(i, j)); 
 			}
 		}
@@ -82,7 +80,7 @@ class MatrizAdyacenciaTest {
 	public void agregarElementoFilaNegativaTest() {
 		int X=-1;
 		int Y=1;
-		//Se cambia el try catch por un assertion
+	
 		Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
 			mat.agregarElemento(X, Y);});
 	
