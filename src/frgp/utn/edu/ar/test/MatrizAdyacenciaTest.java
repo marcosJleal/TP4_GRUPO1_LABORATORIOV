@@ -101,19 +101,13 @@ class MatrizAdyacenciaTest {
 		
 	
 	
-	@Test
-	public void agregarElementoFueraRangoTest() {
-		int Y=3;
-		boolean error = false;
-		
-		try {
-			if (Y>1 || Y<0) throw new ArrayIndexOutOfBoundsException();
-		} catch(ArrayIndexOutOfBoundsException e) {
-			e.printStackTrace();
-			error = true;
-		}
-		assertTrue(error);
-	}
+		@Test
+	    public void agregarElementoFueraRangoTest() {
+	        int i=4,j=2;
+	        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> {
+	            mat.agregarElemento(i, j);
+	          });
+	    }
 	
 	
 }
