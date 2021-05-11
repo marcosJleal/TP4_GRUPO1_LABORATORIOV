@@ -2,6 +2,7 @@ package frgp.utn.edu.ar.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import frgp.utn.edu.ar.main.MatrizAdyacencia;
@@ -81,32 +82,23 @@ class MatrizAdyacenciaTest {
 	public void agregarElementoFilaNegativaTest() {
 		int X=-1;
 		int Y=1;
-		boolean error = false;
-		
-		try {
-			mat.agregarElemento(X, Y);
-		} catch(ArrayIndexOutOfBoundsException e) {
-			e.printStackTrace();
-			error = true;
-		}
-		assertTrue(error);
+		//Se cambia el try catch por un assertion
+		Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
+			mat.agregarElemento(X, Y);});
+	
 	}
 
 	
 	@Test
-	public void agregarElementoColumnaNegativaTest() {
+	public void agregarElementoColumnaNegativaTest(){
 		int X=1;
 		int Y=-2;
-		boolean error = false;
 		
-		try {
-			mat.agregarElemento(X, Y);
-		} catch(ArrayIndexOutOfBoundsException e) {
-			e.printStackTrace();
-			error = true;
-		}
-		assertTrue(error);
-	}
+		//Se cambia el try catch por un assertion
+		Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
+			mat.agregarElemento(X, Y);});
+		};
+		
 	
 	
 	@Test
